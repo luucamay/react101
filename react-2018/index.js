@@ -12,14 +12,26 @@ class LikeIcon extends React.Component {
 }
 
 class Like extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      liked: false
+    }
+    this.toggleLike = this.toggleLike.bind(this)
+  }
+  toggleLike(){
+    this.setState(previousState => ({
+      liked: !previousState.liked
+    }))
+  }
   render() {
     return (
       <div>
-        {/* Include the LikeIcon subcomponent within the Like component*/}
-        <LikeIcon />
+        {/* Use boolean logic to only render the LikeIcon if liked is true */}
+        {this.state.liked && <LikeIcon />}
         <hr />
         <div>
-          <button type="button">
+          <button type="button" className="btn no-outline btn-secondary" onClick={this.toggleLike}>
             <i
               className="fa fa-thumbs-o-up fa-4 align-middle"
               aria-hidden="true"
