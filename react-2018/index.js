@@ -33,11 +33,17 @@ class Like extends React.Component {
   }
 }
 class Comment extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      characterCount: 0
+    }
+  }
   render() {
     return (
       <div>
         <textarea className="form-control" placeholder="Write a comment..." />
-        <small>140 Remaining</small>
+        <small>{this.props.maxLetters - this.state.characterCount} Remaining</small>
       </div>
     )
   }
@@ -66,7 +72,7 @@ class Status extends React.Component {
           </div>
 
           <div className="card-footer text-muted">
-            <Comment />
+            <Comment maxLetters={280} />
           </div>
         </div>
       </div>
