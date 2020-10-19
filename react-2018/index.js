@@ -1,3 +1,13 @@
+class Comment extends React.Component {
+  render() {
+    return (
+      <div>
+        <textarea className="form-control" placeholder="Write a comment..." />
+        <small>140 Remaining</small>
+      </div>
+    )
+  }
+}
 class Status extends React.Component {
   render() {
     return (
@@ -19,7 +29,9 @@ class Status extends React.Component {
             </div>
           </div>
           <p>Hello world!</p>
-          <div className="card-footer text-muted" />
+          <div className="card-footer text-muted">
+            <Comment />
+          </div>
         </div>
       </div>
     )
